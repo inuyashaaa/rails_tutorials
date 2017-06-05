@@ -5,6 +5,11 @@ en:
       home: "Home"
       help: "Help"
       login: "Login"
+      users: "Users"
+      account: "Account"
+      profile: "Profile"
+      setting: "Setting"
+      log_out: "Log out"
     footer:
       the: "The"
       by: "by"
@@ -70,3 +75,10 @@ en:
     error_messages:
       theform: "The form contains"
       error: "error"
+  sessions:
+    new:
+      login: "Log in"
+      new_user: "New user?"
+      signup_now: "Sign up now!"
+    create:
+      error: "Could not find the User"
