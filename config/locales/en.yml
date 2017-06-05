@@ -58,3 +58,15 @@ en:
     new:
       signup: "Sign up"
       twbaspfnu: "This will be a signup page for new users."
+      confirm: "Password Confirmation"
+      create_account: "Create my account"
+      form_name: "User name"
+      form_email: "Email"
+      form_password: "Password"
+    create:
+      welcome: "Welcome to the Sample App!"
+      error: "Could not save the User"
+  shared:
+    error_messages:
+      theform: "The form contains"
+      error: "error"
