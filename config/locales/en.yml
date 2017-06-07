@@ -6,7 +6,6 @@ en:
       help: "Help"
       login: "Login"
       users: "Users"
-      account: "Account"
       profile: "Profile"
       setting: "Setting"
       log_out: "Log out"
@@ -21,6 +20,8 @@ en:
       linknew: "http://news.railstutorial.org/"
       linkbook: "http://www.railstutorial.org/"
       linkauthor: "http://www.michaelhartl.com/"
+    application:
+      base_title: "Ruby on Rails Tutorial Sample App"
   static_pages:
     about:
       the: "The"
@@ -80,5 +81,9 @@ en:
       login: "Log in"
       new_user: "New user?"
       signup_now: "Sign up now!"
+      remember_me: "Remember me on this computer"
     create:
       error: "Could not find the User"
+      welcome_back: "Welcome back <3"
+    destroy:
+      see_you_again: "See you again <3"
