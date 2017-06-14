@@ -78,6 +78,9 @@ en:
     create:
       welcome: "Welcome to the Sample App!"
       error: "Could not save the User"
+      check_mail: "Please check your email to activate your account."
+    show:
+      cant_show: "User not activate!"
     edit:
       title: "Edit user"
       update_profile: "Update your profile"
@@ -105,5 +108,20 @@ en:
     create:
       error: "Could not find the User"
       welcome_back: "Welcome back <3"
+      not_active: "Account not activated. Check your email for the activation link."
     destroy:
       see_you_again: "See you again <3"
+  user_mailer:
+    account_activation:
+      haha: "Sample App"
+      hi: "Hi"
+      welcome: "Welcome to the Sample App! Click on the link below to activate your account:"
+      active: "Active"
+    password_reset:
+      hi: "Hi"
+      title: "User#password_reset"
+      find_me: "find me in app/views/user_mailer/password_reset.html.erb"
+  account_activation:
+    edit:
+      active: "Account activated!"
+      invalid: "Invalid activation link!"
