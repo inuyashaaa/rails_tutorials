@@ -1,21 +1,24 @@
 source "https://rubygems.org"
 
-gem "rails", "5.0.3"
 gem "bcrypt", "3.1.11"
 gem "bootstrap-sass", "3.3.7"
-gem "puma", "3.4.0"
-gem "sass-rails", "5.0.6"
-gem "uglifier", "3.0.0"
+gem "bootstrap-will_paginate", "1.0.0"
 gem "coffee-rails", "4.2.1"
-gem "jquery-rails", "4.1.1"
-gem "turbolinks", "5.0.1"
-gem "jbuilder", "2.4.1"
 gem "config"
+gem "faker", "1.7.3"
+gem "jbuilder", "2.4.1"
+gem "jquery-rails", "4.1.1"
+gem "puma", "3.4.0"
+gem "rails", "5.0.3"
+gem "sass-rails", "5.0.6"
 gem "toastr-rails"
+gem "turbolinks", "5.0.1"
+gem "uglifier", "3.0.0"
+gem "will_paginate", "3.1.5"
 
 group :development, :test do
-  gem "sqlite3", "1.3.12"
   gem "byebug", "9.0.0", platform: :mri
+  gem "sqlite3", "1.3.12"
 end
 
 group :development do
@@ -26,10 +29,10 @@ group :development do
 end
 
 group :test do
-  gem "rails-controller-testing", "0.1.1"
-  gem "minitest-reporters", "1.1.9"
   gem "guard", "2.13.0"
   gem "guard-minitest", "2.4.4"
+  gem "minitest-reporters", "1.1.9"
+  gem "rails-controller-testing", "0.1.1"
 end
 
 group :production do

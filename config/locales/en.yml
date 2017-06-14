@@ -9,6 +9,7 @@ en:
       profile: "Profile"
       setting: "Setting"
       log_out: "Log out"
+      change_profile: "Change Profile"
     footer:
       the: "The"
       by: "by"
@@ -61,6 +62,10 @@ en:
       rort: "Ruby on Rails Tutorial"
       linkhelp: "http://www.railstutorial.org/help/"
   users:
+    index:
+      title: "All users"
+      delete: "Delete"
+      sure: "You sure?"
     new:
       signup: "Sign up"
       twbaspfnu: "This will be a signup page for new users."
@@ -69,9 +74,24 @@ en:
       form_name: "User name"
       form_email: "Email"
       form_password: "Password"
+      please: "Please log in."
     create:
       welcome: "Welcome to the Sample App!"
       error: "Could not save the User"
+    edit:
+      title: "Edit user"
+      update_profile: "Update your profile"
+      save_change: "Update infomation"
+      change_img: "Change Avata"
+      confirm: "Confirmation"
+      please: "Please log in."
+      error: "Permission denied!!!"
+    update:
+      flash: "Profile updated"
+      error: "Update profile error!"
+    destroy:
+      deleted: "User deleted"
+      error: "Something went wrong"
   shared:
     error_messages:
       theform: "The form contains"
