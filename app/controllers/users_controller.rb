@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :verify_admin, only: :destroy
 
   def index
-    @users = User.select(:id, :name, :email, :is_admin)
+    @users = User.select(:id, :name, :email, :is_admin).activated
       .order(:name).page(params[:page]).per_page Settings.user.per_page
   end
 
@@ -17,16 +17,20 @@ class UsersController < ApplicationController
     @user = User.new user_params
 
     if @user.save
-      log_in @user
-      flash[:success] = t ".welcome"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = t ".check_mail"
+      redirect_to root_url
     else
       flash.now[:danger] = t ".error"
       render :new
     end
   end
 
-  def show; end
+  def show
+    return if @user.activated
+    flash[:danger] =  t ".cant_show"
+    redirect_to root_url
+  end
 
   def edit; end
 
