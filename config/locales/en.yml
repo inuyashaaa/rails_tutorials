@@ -103,6 +103,7 @@ en:
     new:
       login: "Log in"
       new_user: "New user?"
+      forgot_pass: "(forgot password)"
       signup_now: "Sign up now!"
       remember_me: "Remember me on this computer"
     create:
@@ -119,9 +120,36 @@ en:
       active: "Active"
     password_reset:
       hi: "Hi"
-      title: "User#password_reset"
+      title: "Password_reset"
       find_me: "find me in app/views/user_mailer/password_reset.html.erb"
+      to_reset: "To reset your password click the link below:"
+      this_link: "This link will expire in two hours.
+        If you did not request your password to be reset, please ignore this email and
+        your password will stay as it is."
+      reset_pass: "Reset password"
+      pass_reset: "Password Reset"
+      expire: "This link will expire in two hours."
+      ignore: "If you did not request your password to be reset,
+        please ignore this email and your password will stay as it is."
   account_activation:
     edit:
       active: "Account activated!"
       invalid: "Invalid activation link!"
+  password_resets:
+    new:
+      title: "Forgot password"
+      submit: "Submit"
+    create:
+      send_email: "Email sent with password reset instructions"
+      email_not_found: "Email address not found"
+    edit:
+      title: "Reset password"
+      confirmation: "Confirmation"
+      update_pass: "Update password"
+      expried: "Password reset has expired."
+      can_not_find: "Can't find the User"
+    update:
+      not_empty: "can't be empty"
+      flash_success: "Password has been reset."
+      expried: "Password reset has expired."
+      can_not_find: "Can't find the User"
