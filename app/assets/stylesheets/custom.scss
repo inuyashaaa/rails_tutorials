@@ -1,8 +1,9 @@
 @import 'bootstrap';
 
-$gray-medium-light: #eaeaea;
-$gray-light-color: #bbbbbb;
 $error-red-color: #ff0000;
+$gray-light-color: #bbbbbb;
+$gray-medium-light: #eaeaea;
+$gray-ninety-one: #e8e8e8;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -191,5 +192,55 @@ input {
     border-bottom: 1px solid $gray-lighter;
     overflow: auto;
     padding: 10px 0;
+  }
+}
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    border-top: 1px solid $gray-ninety-one;
+    padding: 10px 0;
+  }
+
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+
+  .gravatar {
+    float: left;
+    margin-right: 5px 10px 0px 0px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
   }
 }
