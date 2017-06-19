@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes user_params
       flash[:success] = t ".flash"
-      redirect_to @users
+      redirect_to @user
     else
       flash.now[:danger] = t ".error"
       render :edit
@@ -55,14 +55,6 @@ class UsersController < ApplicationController
     params.require(:user).permit :name, :email, :password, :password_confirmation
   end
 
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = t ".please"
-      redirect_to login_url
-    end
-  end
-
   def correct_user
     @user = User.find_by id: params[:id]
 
@@ -74,6 +66,7 @@ class UsersController < ApplicationController
 
   def load_user
     @user = User.find_by id: params[:id]
+    @microposts = @user.microposts.paginate page: params[:page]
 
     if @user.nil?
       render file: "public/404.html", status: :not_found, layout: false
