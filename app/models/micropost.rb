@@ -2,7 +2,9 @@ class Micropost < ApplicationRecord
   belongs_to :user
 
   scope :create_at_desc, ->{order created_at: :desc}
-  scope :user_id, ->id{where "user_id = ?", id}
+  scope :load_feed, ->(following_ids, id) do
+    where "user_id IN (?) OR user_id = ?", following_ids, id
+  end
 
   mount_uploader :picture, PictureUploader
 
@@ -14,7 +16,7 @@ class Micropost < ApplicationRecord
   private
 
   def picture_size
-    if picture.size > (Settings.microposts.max_picture_size).megabytes
+    if picture.size > Settings.microposts.max_picture_size.megabytes
       errors.add :picture, t(".max_picture_size")
     end
   end

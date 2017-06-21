@@ -4,6 +4,14 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
 
+  has_many :microposts, dependent: :destroy
+  has_many :active_relationships, class_name: Relationship.name,
+    foreign_key: :follower_id, dependent: :destroy
+  has_many :passive_relationships, class_name: Relationship.name,
+    foreign_key: :followed_id, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: {maximum: Settings.user.maximum_name.to_i}
   validates :email, presence: true, length: {maximum: Settings.user.maximum_email.to_i},
@@ -11,7 +19,6 @@ class User < ApplicationRecord
   validates :password, presence: true,
     length: {minimum: Settings.user.minium_password_length.to_i}
 
-  has_many :microposts, dependent: :destroy
   has_secure_password
 
   scope :activated, ->{where activated: true}
@@ -68,8 +75,20 @@ class User < ApplicationRecord
     reset_sent_at < Settings.user.reset_sent_time.hours.ago
   end
 
-  def feed
-    Micropost.user_id id
+  def load_feed
+    Micropost.load_feed following_ids, id
+  end
+
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 
   private

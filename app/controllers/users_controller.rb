@@ -27,6 +27,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @microposts = @user.microposts.select(:id, :content, :picture, :user_id,
+      :created_at).create_at_desc.paginate page: params[:page],
+      per_page: Settings.microposts.per_page
+
     return if @user.activated
     flash[:danger] =  t ".cant_show"
     redirect_to root_url
@@ -49,6 +53,20 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def following
+    @title = t ".following"
+    @users = @user.following.paginate page: params[:page],
+      per_page: Settings.follow.per_page
+    render :show_follow
+  end
+
+  def followers
+    @title = t ".followers"
+    @users = @user.followers.paginate page: params[:page],
+      per_page: Settings.follow.per_page
+    render :show_follow
+  end
+
   private
 
   def user_params
@@ -66,7 +84,6 @@ class UsersController < ApplicationController
 
   def load_user
     @user = User.find_by id: params[:id]
-    @microposts = @user.microposts.paginate page: params[:page]
 
     if @user.nil?
       render file: "public/404.html", status: :not_found, layout: false

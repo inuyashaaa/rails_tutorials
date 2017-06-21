@@ -4,8 +4,9 @@ $error-red-color: #ff0000;
 $gray-light-color: #bbbbbb;
 $gray-medium-light: #eaeaea;
 $gray-ninety-one: #e8e8e8;
+$main-blue: #0FF;
 
-@mixin box_sizing {
+@mixin box-sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -99,8 +100,8 @@ footer {
   }
 }
 
-.debug_dump {
-  @include box_sizing;
+.debug-dump {
+  @include box-sizing;
   clear: both;
   float: left;
   margin-top: 45px;
@@ -108,7 +109,7 @@ footer {
 }
 
 aside {
-  section.user_info {
+  section.user-info {
     margin-top: 20px;
   }
 
@@ -142,22 +143,67 @@ aside {
   margin-right: 10px;
 }
 
-.gravatar_edit {
+.gravatar-edit {
   margin-top: 15px;
 }
+
+.stats {
+  margin-top: 0;
+  overflow: auto;
+  padding: 0;
+
+  a {
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    float: left;
+    padding: 0 10px;
+
+    &:first-child {
+      border: 0;
+      padding-left: 0;
+    }
+
+    &:hover {
+      color: $main-blue;
+      text-decoration: none;
+    }
+  }
+
+  strong {
+    display: block;
+  }
+}
+
+.user-avatars {
+  margin-top: 10px;
+  overflow: auto;
+
+  .gravatar {
+    margin: 1px;
+  }
+
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
 
 input, textarea, select, .uneditable-input {
   border: 1px solid $gray-light-color;
   margin-bottom: 15px;
   width: 100%;
-  @include box_sizing;
+  @include box-sizing;
 }
 
 input {
   height: auto !important;
 }
 
-#error_explanation {
+.error-explanation {
   color: $error-red-color;
   ul {
     color: $error-red-color;
